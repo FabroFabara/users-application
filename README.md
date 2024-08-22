@@ -140,3 +140,20 @@ id: 98345837-16ec-44a6-9ee3-993751831647
 
 ![image](https://github.com/user-attachments/assets/4ef5c1bc-0839-451c-aec0-f22f92f6a2b0)
 
+## Otra formas de ejecutar la aplicacion
+
+Tambien se puede ejecutar la aplicacion con este comando ubicado dentro de la carpeta users-application
+
+```
+mvn spring-boot:run
+```
+
+Tambien se puede ejecutar la aplicacion abriendola en el IDE de preferencia y dirigiendonos a la clase ServiceAplication y ejecutandp la clase
+
+![image](https://github.com/user-attachments/assets/450e26b2-6397-4c20-9804-d343e0b58921)
+
+## Despues de levantar de esta manera seguir los pasos y probar las APIS con swagger 
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
