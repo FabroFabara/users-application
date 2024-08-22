@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:userDB
+    username: sa
+    password: sa
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+
+  liquibase:
+    change-log: classpath:db.changelog/db.changelog-master.yaml
+server:
+  port: 8082
+
+custom:
+  email:
+    pattern: ^[^@]+@dominio\.cl$
+  password:
+    pattern: "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+

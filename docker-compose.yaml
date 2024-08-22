@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  api:
+    container_name: user-api
+    command: mvn spring-boot:run -pl .
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:8082"
+    networks:
+      - h2-network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:h2:file:/opt/h2-data/userDB;DB_CLOSE_ON_EXIT=FALSE
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: sa
+
+  h2:
+    container_name: h2
+    image: oscarfonts/h2
+    restart: always
+    ports:
+      - "8081:8081"
+    networks:
+      - h2-network
+    environment:
+      H2_OPTIONS: "-ifNotExists"
+    volumes:
+      - h2_data:/opt/h2-data
+
+networks:
+  h2-network:
+
+volumes:
+  h2_data:
